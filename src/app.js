@@ -5,8 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         const taskInput = document.getElementById('taskInput');
         const taskText = taskInput.value;
-        addTask(taskText);
-        taskInput.value = '';
+        if (taskText.trim() !== '') {
+            addTask(taskText);
+            taskInput.value = '';
+        } else {
+            alert('Please enter a name for the task.');
+        }
+        
     });
 
     function addTask(taskText) {
