@@ -14,10 +14,33 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    document.addEventListener('click', function (event) {
+        const target = event.target;
+
+        if (target.classList.contains('edit')) {
+            const listItem = target.parentElement;
+            const taskText = listItem.querySelector('span');
+            const editInput = listItem.querySelector('.editTask');
+            const isEditing = listItem.classList.contains('editing');
+
+            if (isEditing) {
+                // Se estiver em modo de edição e o usuário pressionar Enter
+                taskText.textContent = editInput.value;
+            } else {
+                // Se estiver em modo de edição e o usuário cancelar
+                editInput.value = taskText.textContent;
+            }
+
+            listItem.classList.toggle('editing');
+            editInput.style.display = isEditing ? 'none' : 'block';
+            taskText.style.display = isEditing ? 'block' : 'none';
+        }
+    });
+
     function addTask(taskText) {
         const taskList = document.getElementById('taskList');
         const li = document.createElement('li');
-        
+
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
         checkBox.addEventListener('change', function () {
@@ -37,9 +60,20 @@ document.addEventListener('DOMContentLoaded', function () {
             li.remove();
         });
 
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.classList.add('edit'); // Adicione a classe edit ao botão de edição
+
+        const editInput = document.createElement('input');
+        editInput.type = 'text';
+        editInput.classList.add('editTask');
+
         li.appendChild(checkBox);
         li.appendChild(span);
+        li.appendChild(editInput);
         li.appendChild(deleteButton);
+        li.appendChild(editButton);
+
         taskList.appendChild(li);
     }
 });
