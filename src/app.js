@@ -17,6 +17,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function addTask(taskText) {
         const taskList = document.getElementById('taskList');
         const li = document.createElement('li');
+        
+        const checkBox = document.createElement('input');
+        checkBox.type = 'checkbox';
+        checkBox.addEventListener('change', function () {
+            if (checkBox.checked) {
+                li.classList.add('completed');
+            } else {
+                li.classList.remove('completed');
+            }
+        });
+
+        const span = document.createElement('span');
+        span.textContent = taskText;
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
@@ -24,22 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
             li.remove();
         });
 
-        const checkBox = document.createElement('input');
-        checkBox.type = 'checkbox';
-        checkBox.addEventListener('change', function () {
-            // Adicione lógica para marcar/desmarcar a tarefa como concluída.
-            if (checkBox.checked) {
-                taskContent.classList.add('completed');
-            } else {
-                taskContent.classList.remove('completed');
-            }
-        });
-
-        const taskContent = document.createElement('span');
-        taskContent.textContent = taskText;
-
         li.appendChild(checkBox);
-        li.appendChild(taskContent);
+        li.appendChild(span);
         li.appendChild(deleteButton);
         taskList.appendChild(li);
     }

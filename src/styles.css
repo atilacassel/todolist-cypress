@@ -1,17 +1,40 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column; /* Lista vertical */
+    align-items: center; /* Centraliza os itens na horizontal */
+    padding-top: 50px; /* Espaço no topo para evitar sobreposição com o título */
 }
 
 .container {
-    max-width: 600px;
+    max-width: 400px;
     margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Utiliza space-between para manter o botão à esquerda */
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1; /* Ocupa o espaço restante disponível */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 ul {
@@ -21,14 +44,41 @@ ul {
 
 li {
     margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e0e0e0;
+    background-color: #fff;
     padding: 10px;
     border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Mantém o botão à direita */
+    align-items: center;
 }
 
-.completed {
+li span {
+    flex: 1; /* Faz com que o span ocupe o espaço restante */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+li.completed span {
     text-decoration: line-through;
+    opacity: 0.7;
+}
+
+li.completed button.delete {
+    text-decoration: none;
+    color: #fff;
+}
+
+button.delete {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+    transform: scale(1.5); /* Ajuste o tamanho conforme necessário */
 }
