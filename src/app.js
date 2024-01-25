@@ -24,10 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const isEditing = listItem.classList.contains('editing');
 
             if (isEditing) {
-                // Se estiver em modo de edição e o usuário pressionar Enter
                 taskText.textContent = editInput.value;
             } else {
-                // Se estiver em modo de edição e o usuário cancelar
                 editInput.value = taskText.textContent;
             }
 
@@ -62,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
-        editButton.classList.add('edit'); // Adicione a classe edit ao botão de edição
+        editButton.classList.add('edit');
 
         const editInput = document.createElement('input');
         editInput.type = 'text';
