@@ -2,3 +2,13 @@ node_modules/
 *.log
 .DS_Store
 dist/
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+/cypress/fixtures/
+/cypress/report/
+
+# Arquivos de configuração Cypress
+cypress.env.json
+cypress.json
