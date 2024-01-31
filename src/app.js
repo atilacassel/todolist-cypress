@@ -2,7 +2,7 @@
 async function fetchTasksFromAPI() {
     return [
       { id: 1, text: 'Task from API 1', completed: false },
-      { id: 2, text: 'Task from API 2', completed: true },
+      { id: 2, text: 'Task from API 2', completed: false },
       { id: 3, text: 'Task from API 3', completed: false }
     ];
   }
