@@ -1,18 +1,11 @@
 /// <reference types="cypress" />
 
-describe('Todo List', () => {
-
+describe("Todo List", () => {
   beforeEach(() => {
+    cy.visit("./src/index.html");
+  });
 
-    cy.visit('./src/index.html')
-
-  })
-
-  it('after visiting a page, asserts some text is visible', () => {
-
-    cy
-      .get('[data-testid="todo-list-header"]')
-      .should('be.visible')
-
-    })
-})
+  it("after visiting a page, asserts some text is visible", () => {
+    cy.contains('h1', 'Your To-Do List').should("be.visible");
+  });
+});
