@@ -2,14 +2,19 @@
   "name": "todolist-cypress",
   "version": "1.0.0",
   "description": "Simple to-do list application built with HTML, CSS, and JavaScript, featuring live updates and integration with Cypress for testing.",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
-    "start": "live-server src --open=/index.html",
-    "cypress:open": "cypress open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "npm start": "live-server src --open=/index.html",
+    "npm test": "cypress run",
+    "cy:open": "cypress open"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "todo",
+    "list",
+    "cypress",
+    "testing"
+  ],
+  "author": "Átila Cassel",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.4",
