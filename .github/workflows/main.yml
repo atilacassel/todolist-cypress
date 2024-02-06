@@ -1,25 +1,10 @@
-name: CI
-
-on:
-  push:
-    branches:
-      - main
-
+name: Cypress Tests
+on: push
 jobs:
-  build:
+  cypress-run:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4 
-
-      - name: Set Up Node.js
-        uses: actions/setup-node@v4 
-        with:
-          node-version: '16'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Tests
-        run: npm test
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
