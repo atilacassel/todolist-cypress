@@ -11,16 +11,14 @@ describe('Todo List', () => {
 
   it('Verify creation of a new task', () => {
     cy.get('[data-testid="task-input"]').type('New task')
-
     cy.get('[data-testid="add-button"]').click()
-
     cy.contains('span', 'New task').should('be.visible')
   })
 
-  it.only('Create and complete task', () => {
+  it('Create and complete task', () => {
     cy.createTask('New task')
-    cy.get('li').should('not.have.class', 'completed');
+    cy.contains('li', 'New task').should('not.have.class', 'completed')
     cy.get('[type="checkbox"]').click()
-    cy.get('li').should('have.class', 'completed')
+    cy.contains('li', 'New task').should('have.class', 'completed')
   })
 })
