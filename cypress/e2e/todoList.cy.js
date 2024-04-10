@@ -21,4 +21,14 @@ describe('Todo List', () => {
     cy.get('[type="checkbox"]').click()
     cy.contains('li', 'New task').should('have.class', 'completed')
   })
+
+  it('Delete task', () => {
+    cy.createTask('New task')
+    cy.contains('li', 'New task').should('be.visible')
+    cy.contains('li', 'New task')
+    .find('button')
+    .contains('Delete')
+    .click()
+    cy.get('[data-testid="task-list"]').should('not.contain', 'New task')
+  })
 })
