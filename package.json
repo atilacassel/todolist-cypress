@@ -4,7 +4,7 @@
   "description": "Simple to-do list application built with HTML, CSS, and JavaScript, featuring live updates and integration with Cypress for testing.",
   "main": "src/index.html",
   "scripts": {
-    "npm start": "live-server src --open=/index.html",
+    "npm start server": "live-server src --open=/index.html",
     "npm test": "cypress run",
     "cy:open": "cypress open"
   },
